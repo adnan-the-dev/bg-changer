@@ -42,9 +42,9 @@ export default function BgChanger() {
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(`${url}/deleteBackground/${id}`);
-      console.log(response.data.message); // Log response for debugging
       if (response.status === 200) {
         // Handle success response
+        fetchData()
         toast.success(response.data.message);
         // Perform any additional actions upon successful deletion
       } else {
