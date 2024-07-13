@@ -74,9 +74,11 @@ export default function BgChanger() {
           {data.map((item, i) => {
             return (
               <>
-                <div className="flex items-center border border-gray-500 rounded-full">
+                <div
+                  key={i}
+                  className="flex items-center border border-gray-500 rounded-full"
+                >
                   <button
-                    key={i}
                     className="outline-none px-4 py-1 rounded-full text-white shadow-lg"
                     onClick={() => setBgColor(item.color)}
                     onMouseEnter={() => setHovered(item.name)}
