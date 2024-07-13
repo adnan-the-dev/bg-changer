@@ -44,7 +44,7 @@ export default function BgChanger() {
       const response = await axios.delete(`${url}/deleteBackground/${id}`);
       if (response.status === 200) {
         // Handle success response
-        fetchData()
+        fetchData();
         toast.success(response.data.message);
         // Perform any additional actions upon successful deletion
       } else {
@@ -57,7 +57,17 @@ export default function BgChanger() {
     }
   };
 
-  if (loading) return <h1>Loading....</h1>;
+  if (loading)
+    return (
+      <>
+        <button type="button" class="bg-indigo-500 ..." disabled>
+          <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
+            {/* <!-- ... --> */}
+          </svg>
+          Processing...
+        </button>
+      </>
+    );
   return (
     <div
       className="w-full h-screen duration-200"
